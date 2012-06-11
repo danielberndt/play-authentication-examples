@@ -1,0 +1,10 @@
+@(loginForm: Form[forms.LoginData])
+
+@helper.form(routes.SecuredApplication.validateLogin) {
+	
+	@if(loginForm.hasGlobalErrors) {<p style="color:red;">@loginForm.globalError.message</p>}
+	
+	@helper.inputText(loginForm("email"))
+	@helper.inputPassword(loginForm("password"))
+	<dl><dd><input type="submit" value="log in"></dd></dl>
+}
